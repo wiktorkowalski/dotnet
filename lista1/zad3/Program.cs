@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace zad3
 {
@@ -7,19 +9,16 @@ namespace zad3
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            DirectoryInfo dir = new DirectoryInfo(args[0] ?? Directory.GetCurrentDirectory());
+
+            foreach (DirectoryInfo d in dir.GetDirectories())
             {
-                DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+                Console.WriteLine("{0, -50}\t directory", d.Name);
+            }
 
-                foreach (DirectoryInfo d in dir.GetDirectories())
-                {
-                    Console.WriteLine("{0, -30}\t directory", d.Name);
-                }
-
-                foreach (FileInfo f in dir.GetFiles())
-                {
-                    Console.WriteLine("{0, -30}\t File", f.Name);
-                }
+            foreach (FileInfo f in dir.GetFiles())
+            {
+                Console.WriteLine("{0, -50}\t File", f.Name);
             }
 
             Console.ReadKey();
