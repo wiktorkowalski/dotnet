@@ -17,6 +17,7 @@ namespace zadanie2
             double a = Convert.ToDouble(this.textArg1.Text);
             double b = Convert.ToDouble(this.textArg2.Text);
             double result = calculate(a, b);
+            this.labelResult.Text = $"Result: {result}";
         }
 
         private double calculate(double a, double b)
@@ -28,18 +29,10 @@ namespace zadanie2
             }
             switch (@operator)
             {
-                case '+':
-                    return a + b;
-                    break;
-                case '-':
-                    return a - b;
-                    break;
-                case '*':
-                    return a * b;
-                    break;
-                case '/':
-                    return a / b;
-                    break;
+                case '+': return a + b;
+                case '-': return a - b;
+                case '*': return a * b;
+                case '/': return a / b;
                 default:
                     MessageBox.Show("Unknown error");
                     return 0;
