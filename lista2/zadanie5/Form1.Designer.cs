@@ -30,30 +30,44 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox1contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.listBox1DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox2contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.usunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox2DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.usunToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox1contextMenu.SuspendLayout();
             this.listBox2contextMenu.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
             // 
-            this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listBox1.ContextMenuStrip = this.listBox1contextMenu;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 26);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(648, 95);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // listBox1contextMenu
+            // 
+            this.listBox1contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listBox1DeleteToolStripMenuItem1});
+            this.listBox1contextMenu.Name = "contextMenuStrip1";
+            this.listBox1contextMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // listBox1DeleteToolStripMenuItem1
+            // 
+            this.listBox1DeleteToolStripMenuItem1.Name = "listBox1DeleteToolStripMenuItem1";
+            this.listBox1DeleteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.listBox1DeleteToolStripMenuItem1.Text = "Usuń";
+            this.listBox1DeleteToolStripMenuItem1.Click += new System.EventHandler(this.listBox1DeleteToolStripMenuItem_Click);
             // 
             // listBox2
             // 
@@ -69,16 +83,16 @@
             // listBox2contextMenu
             // 
             this.listBox2contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usunToolStripMenuItem});
+            this.listBox2DeleteToolStripMenuItem});
             this.listBox2contextMenu.Name = "listBox2contextMenu";
             this.listBox2contextMenu.Size = new System.Drawing.Size(102, 26);
             // 
-            // usunToolStripMenuItem
+            // listBox2DeleteToolStripMenuItem
             // 
-            this.usunToolStripMenuItem.Name = "usunToolStripMenuItem";
-            this.usunToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.usunToolStripMenuItem.Text = "Usun";
-            this.usunToolStripMenuItem.Click += new System.EventHandler(this.usunToolStripMenuItem_Click);
+            this.listBox2DeleteToolStripMenuItem.Name = "listBox2DeleteToolStripMenuItem";
+            this.listBox2DeleteToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.listBox2DeleteToolStripMenuItem.Text = "Usuń";
+            this.listBox2DeleteToolStripMenuItem.Click += new System.EventHandler(this.listBox2DeleteToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -136,20 +150,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "nic";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usunToolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(102, 26);
-            // 
-            // usunToolStripMenuItem1
-            // 
-            this.usunToolStripMenuItem1.Name = "usunToolStripMenuItem1";
-            this.usunToolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
-            this.usunToolStripMenuItem1.Text = "Usun";
-            this.usunToolStripMenuItem1.Click += new System.EventHandler(this.deleteMultipleClick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,8 +165,8 @@
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.listBox1contextMenu.ResumeLayout(false);
             this.listBox2contextMenu.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,9 +183,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ContextMenuStrip listBox2contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem usunToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem usunToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem listBox2DeleteToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip listBox1contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem listBox1DeleteToolStripMenuItem1;
     }
 }
 

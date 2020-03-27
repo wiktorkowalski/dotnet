@@ -59,12 +59,12 @@ namespace zadanie5
             }
         }
 
-        private void usunToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listBox2DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox2.Items.RemoveAt(listBox2.SelectedIndex);
         }
 
-        private void deleteMultipleClick(object sender, EventArgs e)
+        private void listBox1DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox1.BeginUpdate();
             for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
