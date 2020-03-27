@@ -48,7 +48,30 @@ namespace zadanie5
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label3.Text = listBox2.SelectedItem.ToString();
+            label3.Text = listBox2.SelectedItem?.ToString() ?? "nic";
+        }
+
+        private void listBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                listBox2.SelectedIndex = listBox2.IndexFromPoint(e.Location);
+            }
+        }
+
+        private void usunToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.RemoveAt(listBox2.SelectedIndex);
+        }
+
+        private void deleteMultipleClick(object sender, EventArgs e)
+        {
+            listBox1.BeginUpdate();
+            for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
+            {
+                listBox1.Items.Remove(listBox1.SelectedItems[i]);
+            }
+            listBox1.EndUpdate();
         }
     }
 }
