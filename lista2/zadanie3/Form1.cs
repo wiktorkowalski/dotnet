@@ -10,37 +10,23 @@ namespace zadanie3
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.comboBox1.DataSource = Enum.GetValues(typeof(MessageBoxButtons));
+            this.comboBox2.DataSource = Enum.GetValues(typeof(MessageBoxIcon));
+            this.comboBox3.DataSource = Enum.GetValues(typeof(MessageBoxDefaultButton));
+            this.comboBox4.DataSource = Enum.GetValues(typeof(MessageBoxOptions));
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("no buttons, just text", "title");
-            label1.Text = result.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("Buttons with icon","title",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Error);
-            label1.Text = result.ToString();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("                       Is this text right-aligned?","is it?",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.RightAlign);
-            label1.Text = result.ToString();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
+            this.labelResult.Text = MessageBox.Show("content",
+                                                    "title",
+                                                    (MessageBoxButtons)this.comboBox1.SelectedItem,
+                                                    (MessageBoxIcon)this.comboBox2.SelectedItem,
+                                                    (MessageBoxDefaultButton)this.comboBox3.SelectedItem,
+                                                    (MessageBoxOptions)this.comboBox4.SelectedItem).ToString();
         }
     }
 }
