@@ -60,12 +60,12 @@
             this.listBox1contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listBox1DeleteToolStripMenuItem1});
             this.listBox1contextMenu.Name = "contextMenuStrip1";
-            this.listBox1contextMenu.Size = new System.Drawing.Size(181, 48);
+            this.listBox1contextMenu.Size = new System.Drawing.Size(102, 26);
             // 
             // listBox1DeleteToolStripMenuItem1
             // 
             this.listBox1DeleteToolStripMenuItem1.Name = "listBox1DeleteToolStripMenuItem1";
-            this.listBox1DeleteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.listBox1DeleteToolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
             this.listBox1DeleteToolStripMenuItem1.Text = "Usuń";
             this.listBox1DeleteToolStripMenuItem1.Click += new System.EventHandler(this.listBox1DeleteToolStripMenuItem_Click);
             // 
@@ -146,9 +146,8 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(169, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "nic";
             // 
             // Form1
             // 

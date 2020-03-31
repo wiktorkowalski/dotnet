@@ -32,8 +32,8 @@ namespace zadanie5
         {
             listBox1.Items.Clear();
             listBox2.Items.Clear();
-            richTextBox1.Text = "";
-            label3.Text = "";
+            richTextBox1.Text = string.Empty;
+            label3.Text = string.Empty;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace zadanie5
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label3.Text = listBox2.SelectedItem?.ToString() ?? "nic";
+            label3.Text = listBox2.SelectedItem?.ToString() ?? string.Empty;
         }
 
         private void listBox2_MouseDown(object sender, MouseEventArgs e)
