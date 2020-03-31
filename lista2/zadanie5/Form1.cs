@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace zadanie5
 {
@@ -46,13 +47,17 @@ namespace zadanie5
             richTextBox1.Text = sb.ToString();
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            label3.Text = listBox2.SelectedItem?.ToString() ?? string.Empty;
-        }
-
         private void listBox2_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (listBox2.SelectedItem == null)
+                {
+                    return;
+                }
+                label3.Text = listBox2.SelectedItem?.ToString() ?? string.Empty;
+                listBox2.DoDragDrop(listBox2.SelectedItem, DragDropEffects.Move);
+            }
             if (e.Button == MouseButtons.Right)
             {
                 listBox2.SelectedIndex = listBox2.IndexFromPoint(e.Location);
@@ -72,6 +77,24 @@ namespace zadanie5
                 listBox1.Items.Remove(listBox1.SelectedItems[i]);
             }
             listBox1.EndUpdate();
+        }
+
+        private void listBox2_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void listBox2_DragDrop(object sender, DragEventArgs e)
+        {
+            Point point = listBox2.PointToClient(new Point(e.X, e.Y));
+            int index = listBox2.IndexFromPoint(point);
+            if (index < 0)
+            {
+                index = this.listBox1.Items.Count - 1;
+            }
+            object item = listBox2.SelectedItem;
+            listBox2.Items.Remove(item);
+            listBox2.Items.Insert(index, item);
         }
     }
 }

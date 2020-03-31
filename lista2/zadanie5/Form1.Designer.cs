@@ -71,13 +71,15 @@
             // 
             // listBox2
             // 
+            this.listBox2.AllowDrop = true;
             this.listBox2.ContextMenuStrip = this.listBox2contextMenu;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(12, 129);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(147, 290);
             this.listBox2.TabIndex = 1;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.listBox2.DragDrop += new System.Windows.Forms.DragEventHandler(this.listBox2_DragDrop);
+            this.listBox2.DragOver += new System.Windows.Forms.DragEventHandler(this.listBox2_DragOver);
             this.listBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseDown);
             // 
             // listBox2contextMenu
