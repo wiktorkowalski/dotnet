@@ -22,7 +22,6 @@ namespace zadanie7
         public override string ToString()
         {
             return Name;
-            //return $"Name: {Name}\nExtension type: {Extension}\nFlags: {Flags}";
         }
         public string GetCodecInfo()
         {

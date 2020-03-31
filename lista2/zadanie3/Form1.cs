@@ -21,7 +21,12 @@ namespace zadanie3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.labelResult.Text = MessageBox.Show("content", "title", (MessageBoxButtons)this.comboBox1.SelectedItem, (MessageBoxIcon)this.comboBox2.SelectedItem, (MessageBoxDefaultButton)this.comboBox3.SelectedItem, (MessageBoxOptions)this.comboBox4.SelectedItem).ToString();
+            this.labelResult.Text = MessageBox.Show("content",
+                                                    "title",
+                                                    (MessageBoxButtons)this.comboBox1.SelectedItem,
+                                                    (MessageBoxIcon)this.comboBox2.SelectedItem,
+                                                    (MessageBoxDefaultButton)this.comboBox3.SelectedItem,
+                                                    (MessageBoxOptions)this.comboBox4.SelectedItem).ToString();
         }
     }
 }
