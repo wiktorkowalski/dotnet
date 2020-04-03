@@ -5,18 +5,15 @@ namespace zadanie3
 {
     public partial class Form1 : Form
     {
+        private RSA rsa;
         public Form1()
         {
             InitializeComponent();
+            rsa = new RSA();
         }
-
-        public void SetEncryptionKeys(BigInteger privateKey, BigInteger publicKey)
+        private void button1_Click(object sender, System.EventArgs e)
         {
 
         }
-
-        private void button1_Click(object sender, System.EventArgs e) => Controller.GenerateEncryptionKeys();
-
-
     }
 }
