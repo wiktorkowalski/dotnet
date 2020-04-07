@@ -5,7 +5,7 @@ using System;
 
 namespace zadanie4
 {
-    class Calculator
+    public class Calculator
     {
         #region singleton
         private static Calculator calculator;
