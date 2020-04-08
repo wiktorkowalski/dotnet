@@ -16,17 +16,32 @@ namespace zadanie4Tests
         }
         [TestCategory("Simple Math")]
         [TestMethod]
-        [DataRow(2,"1+1")]
+        [DataRow(2, "1+1")]
+        [DataRow(18, "2*9")]
+        [DataRow(-7, "2-9")]
+        [DataRow(0, "0/1")]
+        [DataRow(5, "5/1")]
+        [DataRow(0.2, "1/5")]
         public void SimpleMathTest(double expected, string input)
         {
             Assert.AreEqual(expected, calculator.Calculate(input));
         }
 
         [TestCategory("Operator Order")]
-        [TestMethod()]
-        [DataRow(1,"1*1")]
-        [DataRow(7,"1+2*3")]
+        [TestMethod]
+        [DataRow(7, "1+2*3")]
+        [DataRow(5, "6/2*1+2")]
         public void OperatorOrderTest(double expected, string input)
+        {
+            Assert.AreEqual(expected, calculator.Calculate(input));
+        }
+
+        [TestCategory("0 Division")]
+        [TestMethod]
+        [DataRow(0, "1/0")]
+        [DataRow(0, "0/0*0")]
+        [DataRow(0, "1/0*8")]
+        public void ZeroDivisionTest(double expected, string input)
         {
             Assert.AreEqual(expected, calculator.Calculate(input));
         }
