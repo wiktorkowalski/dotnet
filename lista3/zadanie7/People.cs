@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 
 namespace zadanie7
@@ -15,7 +14,6 @@ namespace zadanie7
         }
 
         public IEnumerator GetEnumerator()
-
         {
             return _people.TakeWhile(person => person != null).GetEnumerator();
         }
