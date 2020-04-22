@@ -31,10 +31,7 @@ namespace zadanie7
 
         public object Current
         {
-            get
-            {
-                return _people[position];
-            }
+            get { return _people[position]; }
         }
     }
 }
