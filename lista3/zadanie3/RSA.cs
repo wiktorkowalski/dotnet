@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Text;
+using System.IO;
 
 namespace zadanie3
 {
-    class RSA
+    public class RSA
     {
         public BigInteger PublicKey { get; set; }
         public BigInteger PrivateKey { get; set; }
         public BigInteger N { get; set; }
+        public BigInteger Ø { get; set; }
+        public BigInteger p { get; set; }
+        public BigInteger q { get; set; }
+        public BigInteger E { get; set; }
+        public BigInteger D { get; set; }
 
 
         static Random Random = new Random();
@@ -49,33 +56,59 @@ namespace zadanie3
 
         public void GenerateEncryptionKeys()
         {
-            BigInteger p, q;
             do
             {
                 p = primes128[Random.Next(primes128.Count)];
                 q = primes128[Random.Next(primes128.Count)];
             } while (BigInteger.Equals(p, q));
 
-            BigInteger Ø = BigInteger.Multiply(BigInteger.Subtract(p, BigInteger.One), BigInteger.Subtract(q, BigInteger.One));
+            Ø = BigInteger.Multiply(BigInteger.Subtract(p, BigInteger.One), BigInteger.Subtract(q, BigInteger.One));
             N = BigInteger.Multiply(p, q);
 
-            BigInteger E = new BigInteger(65537);
-            BigInteger D = EEA(E, Ø);
+            E = new BigInteger(65537);
+            D = EEA(E, Ø);
 
             //todo generate public and private key
             PublicKey = E;
             PrivateKey = D;
         }
 
+        public BigInteger EncryptMessage(BigInteger input)
+        {
+            return BigInteger.ModPow(input, PublicKey, N);
+        }
+
+        public BigInteger DecryptMessage(BigInteger input)
+        {
+            return BigInteger.ModPow(input, PrivateKey, N);
+        }
+
         public string EncryptMessage(string input)
         {
-
-            return "";
+            var byteArray = Encoding.ASCII.GetBytes(input);
+            var encrypted = BigInteger.ModPow(new BigInteger(byteArray), PublicKey, N);
+            return Convert.ToBase64String(encrypted.ToByteArray());
         }
 
         public string DecryptMessage(string input)
         {
-            return "";
+            var byteArray = Convert.FromBase64String(input);
+            var decrypted = BigInteger.ModPow(new BigInteger(byteArray), PrivateKey, N);
+            return Encoding.ASCII.GetString(decrypted.ToByteArray());
+        }
+
+        public string EncryptFile(string path)
+        {
+            var byteArray = File.ReadAllBytes(path);
+            var encrypted = BigInteger.ModPow(new BigInteger(byteArray), PublicKey, N);
+            return Convert.ToBase64String(encrypted.ToByteArray());
+        }
+
+        public string DecryptFile(string path)
+        {
+            var byteArray = Convert.FromBase64String(File.ReadAllText(path));
+            var decrypted = BigInteger.ModPow(new BigInteger(byteArray), PrivateKey, N);
+            return Encoding.ASCII.GetString(decrypted.ToByteArray());
         }
 
 
