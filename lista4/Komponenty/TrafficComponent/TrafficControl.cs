@@ -29,7 +29,6 @@ namespace TrafficComponent
         }
     }
 
-
     public enum TrafficState
     {
         None = 0,
