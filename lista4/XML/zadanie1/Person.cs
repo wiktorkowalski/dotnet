@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 
 namespace zadanie1
 {
+    [Serializable]
     [XmlRoot(ElementName = "Osoba")]
     public class Person
     {
