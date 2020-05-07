@@ -12,7 +12,7 @@ namespace zadanie1
             {
                 Name = "Jan",
                 Surname = "Kowalski",
-                Gender = Gender.HELICOPTER,
+                Gender = Gender.APACHE_HELICOPTER,
                 BirthDate = new DateTime(1999, 12, 6)
             };
             var xmlFormat = new XmlSerializer(typeof(Person));

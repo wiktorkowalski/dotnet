@@ -8,8 +8,7 @@ namespace zadanie1
     {
         MALE,
         FEMALE,
-        APACHE,
-        HELICOPTER,
+        APACHE_HELICOPTER,
         NONBINARY
     }
 }
