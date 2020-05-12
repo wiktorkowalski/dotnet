@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="People">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Osoby"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Osoby">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Osoba"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Osoba">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Id"/>
+      </xs:sequence>
+      <xs:attribute name="Adres" use="required"/>
+      <xs:attribute name="Imie" use="required" type="xs:NCName"/>
+      <xs:attribute name="Nazwisko" use="required"/>
+      <xs:attribute name="NumerTelefonu" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Id" type="xs:integer"/>
+</xs:schema>

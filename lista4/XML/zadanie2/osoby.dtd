@@ -1,0 +1,21 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT People (Osoby)>
+<!ATTLIST People
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT Osoby (Osoba)+>
+<!ATTLIST Osoby
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT Osoba (Id)>
+<!ATTLIST Osoba
+  xmlns CDATA #FIXED ''
+  Adres CDATA #REQUIRED
+  Imie NMTOKEN #REQUIRED
+  Nazwisko CDATA #REQUIRED
+  NumerTelefonu CDATA #REQUIRED>
+
+<!ELEMENT Id (#PCDATA)>
+<!ATTLIST Id
+  xmlns CDATA #FIXED ''>

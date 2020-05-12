@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<People xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Osoby>
+    <Osoba Imie="Miriam" Nazwisko="Herrero" Adres="Elche Calle de Argumosa 3247" NumerTelefonu="663-807-516">
+      <Id>1</Id>
+    </Osoba>
+    <Osoba Imie="Mari" Nazwisko="Galema" Adres="Onna De Geerstraat 9339" NumerTelefonu="(66) 7006-6184">
+      <Id>2</Id>
+    </Osoba>
+    <Osoba Imie="Cheng" Nazwisko="Van Antwerpen" Adres="Kerkrade Achterheuvel 6582" NumerTelefonu="787-647-5461">
+      <Id>3</Id>
+    </Osoba>
+    <Osoba Imie="Deborah" Nazwisko="Riley" Adres="Letterkenny New Street 2763" NumerTelefonu="0440-338-505">
+      <Id>4</Id>
+    </Osoba>
+    <Osoba Imie="Édipo" Nazwisko="Gonçalves" Adres="Aparecida de Goiânia Beco dos Namorados 197" NumerTelefonu="(147)-349-2222">
+      <Id>5</Id>
+    </Osoba>
+    <Osoba Imie="Pearl" Nazwisko="Bishop" Adres="Maitland Green Rd 3354" NumerTelefonu="(49) 6506-1997">
+      <Id>6</Id>
+    </Osoba>
+    <Osoba Imie="Aiden" Nazwisko="Montgomery" Adres="Portlaoise Rochestown Road 1855" NumerTelefonu="653-878-269">
+      <Id>7</Id>
+    </Osoba>
+  </Osoby>
+</People>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
+using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace zadanie2
@@ -39,6 +41,7 @@ namespace zadanie2
         {
             listView1.Items.Clear();
             populateListView(copy);
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -93,7 +96,7 @@ namespace zadanie2
                 if (result == DialogResult.OK)
                 {
                     var person = addNewPersonForm.NewPerson;
-                    Person lastPerson = people.PeopleList.LastOrDefault();
+                    Person lastPerson = people.PeopleList?.LastOrDefault();
                     int id = 1;
                     if (lastPerson != null)
                     {
@@ -127,6 +130,19 @@ namespace zadanie2
             openFileDialog1.Filter = "XML-File | *.xml";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                var schemas = new XmlSchemaSet();
+                schemas.Add("", @"../../osoby.xsd");
+                var doc = XDocument.Load(openFileDialog1.FileName);
+                var validationError = false;
+                doc.Validate(schemas, (o, validationEvent) =>
+                {
+                    validationError = true;
+                    MessageBox.Show($"Wybrano nieprawidłowy plik XML\n{validationEvent.Message}", "Nieprawidłowy plik XML",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                });
+
+                if (validationError) return;
+
                 var stream = openFileDialog1.OpenFile();
                 var xmlSerializer = new XmlSerializer(typeof(People));
                 using (var reader = new StreamReader(stream))
@@ -136,8 +152,13 @@ namespace zadanie2
 
                 copy = new List<Person>(people.PeopleList);
                 populateListView(people.PeopleList);
-
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            people.PeopleList = new List<Person>();
+            copy = new List<Person>(people.PeopleList);
         }
     }
 }
