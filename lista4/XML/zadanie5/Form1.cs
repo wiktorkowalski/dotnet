@@ -143,23 +143,26 @@ namespace zadanie5
 
         private void button6_Click(object sender, EventArgs e)
         {
-            CaptureScreen();
-            printDocument1.Print();
+            foreach (var item in people.PeopleList)
+            {
+                printString += item.ToString() + "\n";
+            }
+            PrintPreviewDialog printPreview = new PrintPreviewDialog();
+            PrintDialog printdlg = new PrintDialog();
+            printPreview.Document = printDocument1;
+            printPreview.ShowDialog();
+            printdlg.Document = printDocument1;
+            if (printdlg.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
 
-        Bitmap memoryImage;
-        private void CaptureScreen()
-        {
-            Graphics myGraphics = this.CreateGraphics();
-            Size s = this.Size;
-            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
-        }
+        private string printString;
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(memoryImage, 0, 0);
+            e.Graphics.DrawString(printString, new Font("Arial Bold", 11), new SolidBrush(Color.Black), 0, 0);
         }
     }
 }

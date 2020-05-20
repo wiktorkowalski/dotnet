@@ -8,6 +8,7 @@ namespace zadanie5
     public class People
     {
         [XmlArray("Osoby"), XmlArrayItem(typeof(Person), ElementName = "Osoba")]
-        public List<Person> PeopleList { get; set; }
+        public List<Person> PeopleList { get; set; } = new List<Person>();
+        
     }
 }
