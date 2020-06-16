@@ -9,9 +9,17 @@ namespace Zadanie3
         {
             Context context = new Context();
 
-            var query = context.Osoby.Select(item => item).Where(x => x.Imie.Contains("test")).ToList();
+            context.Database.EnsureCreated();
 
-            query.ForEach(item => Console.WriteLine(item));
+            var osoby = context.Osoby.Select(item => item).ToList();
+
+            osoby.ForEach(item => Console.WriteLine(@"
+                *********************************
+                Wiadomość do {0}
+                {1}
+                {2}
+                Treść
+                *********************************", item.Email,item.Imie, item.Nazwisko));
         }
     }
 }

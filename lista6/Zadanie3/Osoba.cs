@@ -19,8 +19,8 @@ namespace Zadanie3
         public string Nazwisko { get; set; }
 
         [NotNull]
-        public int Wiek { get; set; }
+        public string Email { get; set; }
 
-        public override string ToString() => $"{Id}. {Imie} {Nazwisko} {Wiek}";
+        public override string ToString() => $"{Id}. {Imie} {Nazwisko} {Email}";
     }
 }
